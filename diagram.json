@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "author": "Jasmine Sornalingam",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 52.42, "left": 18.47, "attrs": {} },
+    { "type": "wokwi-neopixel", "id": "rgb1", "top": 121.3, "left": 200.6, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 60.74,
+      "left": -114.97,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -143.7,
+      "left": 234.6,
+      "attrs": { "temperature": "300" }
+    },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": -140, "left": 319.02, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -8.1,
+      "left": -349.7,
+      "attrs": { "distance": "11500" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "rgb1:VDD", "esp:3V3", "red", [ "h-28.8", "v86.4", "h-53.03" ] ],
+    [ "rgb1:VSS", "esp:GND.1", "black", [ "v-0.9", "h47.2", "v57.6" ] ],
+    [ "rgb1:DIN", "esp:D5", "green", [ "h37.6", "v-67.2", "h-67.2", "v86.12" ] ],
+    [ "oled1:GND", "esp:GND.1", "black", [ "v-76.8", "h374.4", "v211.2", "h-9.6" ] ],
+    [ "oled1:VCC", "esp:VIN", "red", [ "v-67.2", "h67.35", "v211.2" ] ],
+    [ "oled1:SCL", "esp:D21", "green", [ "v-96", "h201.9", "v134.4" ] ],
+    [ "oled1:SDA", "esp:D22", "green", [ "v-115.2", "h220.87", "v124.8" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "h-76.8", "v239.72" ] ],
+    [ "dht1:SDA", "esp:D4", "green", [ "v0" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v9.6", "h19.2", "v220.8" ] ],
+    [ "pir1:VCC", "esp:VIN", "red", [ "v326.4", "h-355.2", "v-67.2" ] ],
+    [ "pir1:OUT", "esp:D15", "green", [ "v0" ] ],
+    [ "pir1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "ultrasonic1:VCC", "esp:VIN", "red", [ "v144" ] ],
+    [ "ultrasonic1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "ultrasonic1:TRIG", "esp:D27", "green", [ "v0" ] ],
+    [ "ultrasonic1:ECHO", "esp:D26", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
